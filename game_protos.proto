@@ -45,3 +45,19 @@ message GetGameStatsRequest {
 message GetGameStatsResponse {
     repeated Move moves = 1;
 } // get an array moves made in the game
+
+enum PieceType {
+    PAWN = 0;
+    ROOK = 1;
+    KNIGHT = 2;
+    BISHOP = 3;
+    QUEEN = 4;
+    KING = 5;
+} // pieces in chess
+
+message Piece {
+    PieceType type = 1;
+    string position = 2;
+    bool is_white = 3;
+    bool captured = 4;
+}
