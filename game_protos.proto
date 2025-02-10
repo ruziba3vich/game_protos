@@ -41,11 +41,5 @@ message GetGameStatsRequest {
 } // get game statistics by game_id
 
 message GetGameStatsResponse {
-    Node node = 1;
+    repeated Move moves = 1;
 } // get an array moves made in the game
-
-message Node {
-    Node prev = 1;
-    Node curr = 2;
-    Node next = 3;
-}
