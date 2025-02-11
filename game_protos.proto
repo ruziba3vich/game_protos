@@ -61,3 +61,11 @@ message Piece {
     bool is_white = 3;
     bool captured = 4;
 }
+
+message Game {
+    string game_id = 1;
+    string player1 = 2;
+    string player2 = 3;
+    bool player1_is_white = 4;
+    repeated Move moves = 5;
+}
