@@ -64,8 +64,6 @@ message Piece {
 
 message Game {
     string game_id = 1;
-    string player1 = 2;
-    string player2 = 3;
-    bool player1_is_white = 4;
-    repeated Move moves = 5;
+    repeated string players = 2; // there will only be two id's of players, the one at index 0 is white
+    repeated Move moves = 3;
 }
