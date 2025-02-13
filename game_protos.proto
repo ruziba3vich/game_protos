@@ -25,6 +25,7 @@ message CreateGameRequest {
 
 message CreateGameResponse {
     string game_id = 1;
+    bool white = 2;
 } // connect the user to the game by the generated game_id
 
 message MakeMoveRequest {
