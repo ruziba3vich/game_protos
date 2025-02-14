@@ -1,13 +1,14 @@
 syntax = "proto3";
 
 option go_package = "internal/genprotos";
+import "google/protobuf/empty.proto";
 
 package game;
 
 
 service GameService {
     rpc MakeMove(MakeMoveRequest) returns (MakeMoveResponse);
-    rpc CreateGame(CreateGameRequest) returns (CreateGameResponse);
+    rpc CreateGame(CreateGameRequest) returns (google.protobuf.Empty); // now I think we do not return anything to the user directly, the user gets their opponent via published message in redis
     rpc GetGameStats(GetGameStatsRequest) returns (GetGameStatsResponse);
 }
 
@@ -22,10 +23,6 @@ message CreateGameRequest {
     int32 player_rank = 2;
     int32 duration = 3;
 } // create a game according to player's rank among [player_rank - 200, player_rank + 200] players
-
-message CreateGameResponse {
-    string game_id = 1;
-} // connect the user to the game by the generated game_id
 
 message MakeMoveRequest {
     string game_id = 1;
