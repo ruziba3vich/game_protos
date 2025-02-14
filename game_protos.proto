@@ -36,6 +36,8 @@ message MakeMoveRequest {
 message MakeMoveResponse {
     bool success = 1;
     string message = 2;
+    bool is_check = 3; // this is needed in frontend, if the move is a check, then move sound will be different than a basic move
+    bool is_checkmate = 4; // determine if after this move the game is finished with checkmate
 } // response contains a message if it is not a successfull move
 
 message GetGameStatsRequest {
