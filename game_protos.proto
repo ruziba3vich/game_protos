@@ -10,6 +10,7 @@ service GameService {
     rpc MakeMove(MakeMoveRequest) returns (MakeMoveResponse);
     rpc CreateGame(CreateGameRequest) returns (google.protobuf.Empty); // now I think we do not return anything to the user directly, the user gets their opponent via published message in redis
     rpc GetGameStats(GetGameStatsRequest) returns (GetGameStatsResponse);
+    rpc GetGameById(GetGameByIdRequest) returns (Game); // the user receives the game id, and follows the game by the id only
 }
 
 message Move {
@@ -65,4 +66,8 @@ message Game {
     string game_id = 1;
     repeated string players = 2; // there will only be two id's of players, the one at index 0 is white
     repeated Move moves = 3;
+}
+
+message GetGameByIdRequest {
+    string game_id = 1;
 }
