@@ -71,3 +71,4 @@ message Game {
 message GetGameByIdRequest {
     string game_id = 1;
 }
+
